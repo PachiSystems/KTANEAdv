@@ -1,0 +1,25 @@
+{
+  "name": "ktaneadv",
+  "version": "0.1",
+  "description": "Keep Talking & Nobody Explodes Interactive Manual",
+  "keywords": [
+    "js",
+    "ef",
+    "library"
+  ],
+  "authors": [
+    "Brian Milton"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": false,
+  "main": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "gulpfile.js"
+  ]
+}
