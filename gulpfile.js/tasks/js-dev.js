@@ -10,7 +10,7 @@ var notify = require('gulp-notify');
 gulp.task('js-dev', function(){
 
     return gulp.src(config.includedJavaScript)
-        .pipe(concat('PersonaAPIDevelopmentFull.js'))
+        .pipe(concat('KTANELib.js'))
         .pipe(gulp.dest('dist'))
         .pipe(notify({message:'Finished concatenating JavaScript with all deps.'}));
 

@@ -131,7 +131,7 @@
 
     var checkValidWord = function (checkString) {
 
-        console.log('Checking: ', checkString);
+        // console.log('Checking: ', checkString);
 
         var wordArray = [];
 
@@ -139,11 +139,11 @@
 
             var currentWord = validWords[i].word.trim();
 
-            console.log('Comparing: ', currentWord);
+            // console.log('Comparing: ', currentWord);
 
             if(currentWord.substr(0,checkString.length).toUpperCase() == checkString.toUpperCase()) {
                 wordArray.push(validWords[i]);
-                console.log('Matched.');
+                // console.log('Matched.');
             }
 
         }
@@ -158,8 +158,8 @@
 
         var container = document.getElementsByName(selectName)[0];
 
-        console.log('CONTAINER:',container);
-        console.log('RESULTS:', resultsArray);
+        // console.log('CONTAINER:',container);
+        // console.log('RESULTS:', resultsArray);
 
         container.innerHTML = '';
 

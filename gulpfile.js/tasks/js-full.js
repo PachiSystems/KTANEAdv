@@ -11,7 +11,7 @@ var config = require('../config');
 gulp.task('js-full', function(){
 
     return gulp.src(config.includedJavaScript)
-        .pipe(concat('CEFComLib.min.js'))
+        .pipe(concat('KTANELib.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('dist'))
         .pipe(notify({message:'Finished concatenating & minifying JavaScript with all deps.'}));

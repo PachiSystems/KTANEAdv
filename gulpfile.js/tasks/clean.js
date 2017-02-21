@@ -4,6 +4,6 @@ var config = require('../config');
 
 gulp.task('clean', function (cb) {
     del([
-        config.distJavaScriptAssets
+        config.distributionDirectory
     ], cb);
 });

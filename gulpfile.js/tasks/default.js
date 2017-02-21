@@ -3,4 +3,4 @@
  */
  var gulp = require('gulp');
 
-gulp.task('default',['clean','js-full','js-nodeps','watch']);
+gulp.task('default',['clean','js-full','watch']);
