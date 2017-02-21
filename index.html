@@ -3,14 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <title>Hyper Bomb Manual</title>
+
+    <link href="dist/css/basic.css" rel="stylesheet" type="text/css">
+    <link href="dist/css/simpleWires.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
 
 <h3>This manual is interactive to make it quicker to defuse bombs.</h3>
 
-<p>Module: Morse Code</p>
+Bomb serial number: <input type="text" id="bomb-serial-number">
+
+<hr>
+
+<h4>Module: Morse Code</h4>
 <input name="morse-input" type="text"><br>
 <select name="morse-results" size="1"></select>
+
+<hr>
+
+<h4>Module: Simple Wires (<a href="#" class="reset-simple-wires">reset</a>)</h4>
+
+<div class="simple-wire-table" data-wire-index="1">
+    <span class="wire red" data-value="RED"></span>
+    <span class="wire blue" data-value="BLUE"></span>
+    <span class="wire yellow" data-value="YELLOW"></span>
+    <span class="wire black" data-value="BLACK"></span>
+    <span class="wire white" data-value="WHITE"></span>
+    <span class="simple-wire-result"></span>
+</div>
+
+<div class="simple-wire-table hidden" data-wire-index="2">
+    <span class="wire red" data-value="RED"></span>
+    <span class="wire blue" data-value="BLUE"></span>
+    <span class="wire yellow" data-value="YELLOW"></span>
+    <span class="wire black" data-value="BLACK"></span>
+    <span class="wire white" data-value="WHITE"></span>
+    <span class="simple-wire-result"></span>
+</div>
+
+<div class="simple-wire-table hidden" data-wire-index="3">
+    <span class="wire red" data-value="RED"></span>
+    <span class="wire blue" data-value="BLUE"></span>
+    <span class="wire yellow" data-value="YELLOW"></span>
+    <span class="wire black" data-value="BLACK"></span>
+    <span class="wire white" data-value="WHITE"></span>
+    <span class="simple-wire-result"></span>
+</div>
+
+<div class="simple-wire-table hidden" data-wire-index="4">
+    <span class="wire red" data-value="RED"></span>
+    <span class="wire blue" data-value="BLUE"></span>
+    <span class="wire yellow" data-value="YELLOW"></span>
+    <span class="wire black" data-value="BLACK"></span>
+    <span class="wire white" data-value="WHITE"></span>
+    <span class="simple-wire-result"></span>
+</div>
+
+<div class="simple-wire-table hidden" data-wire-index="5">
+    <span class="wire red" data-value="RED"></span>
+    <span class="wire blue" data-value="BLUE"></span>
+    <span class="wire yellow" data-value="YELLOW"></span>
+    <span class="wire black" data-value="BLACK"></span>
+    <span class="wire white" data-value="WHITE"></span>
+    <span class="simple-wire-result"></span>
+</div>
+
+<div class="simple-wire-table hidden" data-wire-index="6">
+    <span class="wire red" data-value="RED"></span>
+    <span class="wire blue" data-value="BLUE"></span>
+    <span class="wire yellow" data-value="YELLOW"></span>
+    <span class="wire black" data-value="BLACK"></span>
+    <span class="wire white" data-value="WHITE"></span>
+    <span class="simple-wire-result"></span>
+</div>
+
+<hr>
 
 <div>
     <span>
@@ -28,7 +96,10 @@
     </span>
 </div>
 
+<script src="http://code.jquery.com/jquery-3.1.1.slim.min.js" type="text/javascript"></script>
+<script src="js/bombConfig.js" type="text/javascript"></script>
 <script src="js/morseCode.js" type="text/javascript"></script>
+<script src="js/simpleWires.js" type="text/javascript"></script>
 
 </body>
 </html>

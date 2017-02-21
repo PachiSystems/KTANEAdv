@@ -6,5 +6,6 @@ var gulp = require('gulp');
 var config = require('../config');
 
 gulp.task('watch', function(){
-    gulp.watch(config.appJavaScriptAssets + '/**/*.js',['js-full','js-nodeps']);
+    gulp.watch(config.appJavaScriptAssets + '/**/*.js',['js-full']);
+    gulp.watch(config.stylesDirectory + '/**/*.scss', ['sass']);
 });

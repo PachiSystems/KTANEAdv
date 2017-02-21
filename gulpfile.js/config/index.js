@@ -11,7 +11,9 @@ config.applicationDirectory = './js';
 config.appJavaScriptAssets = './dist';
 
 config.includedJavaScript = [
-    config.applicationDirectory + '/morseCode.js'
+    config.applicationDirectory + '/bombConfig.js',
+    config.applicationDirectory + '/morseCode.js',
+    config.applicationDirectory + '/simpleWires.js'
 ];
 
 module.exports = config;
