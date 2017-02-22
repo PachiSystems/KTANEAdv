@@ -1,0 +1,50 @@
+.simple-wire-table {
+
+  display: block;
+  margin: 0 auto;
+
+  .wire {
+    display: inline-block;
+    opacity: 0.25;
+    height: 20px;
+    width: 80px;
+    margin: 20px;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.-selected {
+      opacity: 1;
+    }
+
+  }
+
+  .simple-wire-result {
+    display: inline-block;
+    margin: 20px;
+    vertical-align: top;
+  }
+
+  .red {
+    background: red;
+
+  }
+
+  .blue {
+    background: blue;
+  }
+
+  .yellow {
+    background: yellow;
+  }
+
+  .black {
+    background: black;
+  }
+
+  .white {
+    border: 1px solid black;
+  }
+
+}
