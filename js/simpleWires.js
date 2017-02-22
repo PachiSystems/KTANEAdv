@@ -12,11 +12,10 @@
 
         var wireCount = [];
 
-        var index = wireArray.indexOf(colour);
-
-        while (index != -1) {
-            wireCount.push(index);
-            index = wireCount.indexOf(colour, index + 1);
+        for (var i = 0, len = wireArray.length; i < len; i++) {
+            if(wireArray[i] === colour) {
+                wireCount.push(i);
+            }
         }
 
         return wireCount;
@@ -25,19 +24,23 @@
 
     var makeDecision = function(wireArray){
 
-        var redWires = countWires(wireArray, 'RED'),
-            blueWires = countWires(wireArray, 'BLUE'),
-            yellowWires = countWires(wireArray, 'YELLOW'),
-            blackWires = countWires(wireArray, 'BLACK'),
-            whiteWires = countWires(wireArray, 'WHITE'),
+        var wireColour = {
+                red : countWires(wireArray, 'RED'),
+                white : countWires(wireArray, 'WHITE'),
+                blue : countWires(wireArray, 'BLUE'),
+                yellow: countWires(wireArray, 'YELLOW'),
+                black: countWires(wireArray, 'BLACK')
+            },
             lastWire = wireArray[wireArray.length - 1],
             isSerialLastDigitOdd = (KTANE.BombConfig.serialNumber.slice(-1)%2 === 1);
+
+        console.log(wireColour);
 
         switch (wireArray.length) {
 
             case 3:
                 // If there are no red wires, cut the second wire.
-                if (!redWires.length) {
+                if (!wireColour.red.length) {
                     return 2;
                 }
 
@@ -47,8 +50,8 @@
                 }
 
                 // Otherwise, if there's more than one blue wire, cut the last blue wire.
-                if (blueWires.length > 1) {
-                    return blueWires[blueWires.length-1];
+                if (wireColour.blue.length > 1) {
+                    return wireColour.blue[wireColour.blue.length-1] + 1;
                 }
 
                 // Otherwise cut the last wire.
@@ -61,24 +64,24 @@
                 // If there's more than one red wire and the last digit of the serial number is odd, cut the last red wire.
                 if (isSerialLastDigitOdd) {
 
-                    if(redWires.length > 1) {
-                        return redWires[redWires.length-1];
+                    if(wireColour.red.length > 1) {
+                        return wireColour.red[wireColour.red.length-1] + 1;
                     }
 
                 }
 
                 // Otherwise, if the last wire is yellow and there are no red wires, cut the first wire.
-                if (lastWire === 'YELLOW' && !redWires.length) {
+                if (lastWire === 'YELLOW' && !wireColour.red.length) {
                     return 1;
                 }
 
                 // Otherwise, if there is exactly one blue wire, cut the first wire.
-                if (blueWires.length === 1) {
+                if (wireColour.blue.length === 1) {
                     return 1;
                 }
 
                 // If there is more than one yellow wire, cut the last wire.
-                if (yellowWires.length > 1) {
+                if (wireColour.yellow.length > 1) {
                     return wireArray.length;
                 }
 
@@ -95,12 +98,12 @@
                 }
 
                 // Otherwise, if there is exactly one red wire and there is more than one yellow wire, cut the first wire.
-                if (redWires.length === 1 && yellowWires.length > 1) {
+                if (wireColour.red.length === 1 && wireColour.yellow.length > 1) {
                     return 1;
                 }
 
                 // Otherwise, if there are no black wires, cut the second wire.
-                if(!blackWires.length) {
+                if(!wireColour.black.length) {
                     return 2;
                 }
 
@@ -112,17 +115,17 @@
             case 6:
 
                 // If there are no yellow wires and the last digit of the serial number is odd, cut the third wire.
-                if(!yellowWires.length && isSerialLastDigitOdd) {
+                if(!wireColour.yellow.length && isSerialLastDigitOdd) {
                     return 3;
                 }
 
                 // Otherwise, if there is exactly one yellow wire and there is more than one white wire, cut the fourth wire.
-                if(yellowWires.length === 1 && whiteWires.length > 1) {
+                if(wireColour.yellow.length === 1 && wireColour.white.length > 1) {
                     return 4;
                 }
 
                 // Otherwise, if there are no red wires, cut the last wire.
-                if(!redWires.length) {
+                if(!wireColour.red.length) {
                     return wireArray.length;
                 }
 
@@ -140,13 +143,17 @@
         $(this).siblings().removeClass('-selected');
         $(this).addClass('-selected');
 
-        var selectedWireIndex = $(this).closest('.simple-wire-table').data('wire-index');
+        var selectedWireIndex = parseInt($(this).closest('.simple-wire-table').data('wire-index'));
+
+        console.log('Selected wire:', selectedWireIndex);
 
         selectedWires[selectedWireIndex - 1] = $(this).data('value');
 
         if(selectedWireIndex < 6) {
             $('[data-wire-index="' + (selectedWireIndex + 1) + '"]').removeClass('hidden');
         }
+
+        console.log('Wires so far:',selectedWires);
 
         if(selectedWires.length >= 3) {
 
